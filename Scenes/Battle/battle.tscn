@@ -379,6 +379,7 @@ libraries = {
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_5h7kn")
 volume_db = 10.0
+stream_paused = true
 
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn1" to="." method="_on_attack_btn_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn2" to="." method="_on_attack_btn_2_pressed"]
