@@ -1,0 +1,125 @@
+[gd_scene load_steps=22 format=3 uid="uid://bqlu3rajpe485"]
+
+[ext_resource type="Texture2D" uid="uid://dxskbtiivbi36" path="res://Assets/Bobol/Bubble_Blue/bubble Normal1.png" id="1_cb0c8"]
+[ext_resource type="Texture2D" uid="uid://bg0odpxxabqqv" path="res://Assets/Bobol/Bubble_Blue/bubble Normal2.png" id="2_08cqv"]
+[ext_resource type="Texture2D" uid="uid://c5s7sb7jou1ip" path="res://Assets/Bobol/Bubble_Blue/bubble Normal3.png" id="3_xbxf0"]
+[ext_resource type="Texture2D" uid="uid://mivyu30t2qcs" path="res://Assets/Bobol/Bubble_Blue/bubble Normal4.png" id="4_y2ce6"]
+[ext_resource type="Texture2D" uid="uid://capqlp8f7k5om" path="res://Assets/Bobol/Bubble_Blue/bubble Normal5.png" id="5_x1pka"]
+[ext_resource type="Texture2D" uid="uid://cny1r6l6mleu3" path="res://Assets/Bobol/Bubble_Blue/bubble Normal6.png" id="6_c68fb"]
+[ext_resource type="Texture2D" uid="uid://b38ivpyg7bjgj" path="res://Assets/Bobol/Bubble_Red/bubble pop.1.png" id="7_4djo3"]
+[ext_resource type="Texture2D" uid="uid://ceep14fs1sn6f" path="res://Assets/Bobol/Bubble_Red/bubble pop.2.png" id="8_k4137"]
+[ext_resource type="Texture2D" uid="uid://dughyrrq6t2nw" path="res://Assets/Bobol/Bubble_Red/bubble pop.3.png" id="9_gnhf3"]
+[ext_resource type="Texture2D" uid="uid://lx3jhqcaa71k" path="res://Assets/Bobol/Bubble_Red/bubble pop.4.png" id="10_2qik6"]
+[ext_resource type="Texture2D" uid="uid://o278kvs1ptp1" path="res://Assets/Bobol/Bubble_Red/bubble pop.5.png" id="11_f56x0"]
+[ext_resource type="Texture2D" uid="uid://ygesvqveo6se" path="res://Assets/Bobol/Bubble_Red/bubble pop.6.png" id="12_fdot3"]
+[ext_resource type="Texture2D" uid="uid://dejhignxnyam5" path="res://Assets/Bobol/Bubble_Red/bubble pop.7.png" id="13_yyfql"]
+[ext_resource type="Texture2D" uid="uid://di2btscm2gs7k" path="res://Assets/Bobol/Bubble_Red/bubble pop.8.png" id="14_ihmt8"]
+[ext_resource type="Texture2D" uid="uid://dp7egtkorpppg" path="res://Assets/Bobol/Bubble_Red/bubble pop.9.png" id="15_1lm6l"]
+[ext_resource type="Texture2D" uid="uid://bu77senp7u6ru" path="res://Assets/Bobol/Bubble_Red/bubble pop.10.png" id="16_l4xu8"]
+[ext_resource type="Texture2D" uid="uid://b5ahud5wj70g3" path="res://Assets/Bobol/Bubble_Red/bubble pop.11.png" id="17_hnx2o"]
+[ext_resource type="Texture2D" uid="uid://mwniyg44erv3" path="res://Assets/Bobol/Bubble_Red/bubble pop.12.png" id="18_iusfe"]
+[ext_resource type="Texture2D" uid="uid://bldg1ryhpoglq" path="res://Assets/Bobol/Bubble_Red/bubble pop.13.png" id="19_fpb46"]
+[ext_resource type="Script" path="res://Assets/Bobol/bubble.gd" id="20_g322l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0l6v5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cb0c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_08cqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xbxf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y2ce6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x1pka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c68fb")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4djo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k4137")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gnhf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2qik6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f56x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fdot3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yyfql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ihmt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1lm6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_l4xu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hnx2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_iusfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_fpb46")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4djo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k4137")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gnhf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2qik6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f56x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fdot3")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[node name="Bubble" type="AnimatedSprite2D"]
+z_index = 3
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-4, 16)
+sprite_frames = SubResource("SpriteFrames_0l6v5")
+animation = &"blue"
+frame_progress = 0.175897
+script = ExtResource("20_g322l")

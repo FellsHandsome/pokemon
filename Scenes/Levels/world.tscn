@@ -247,6 +247,6 @@ position = Vector2(1040, 400)
 
 [node name="PokeMonster" parent="." instance=ExtResource("5_5fkqq")]
 z_index = 3
-position = Vector2(436, 259)
+position = Vector2(432, 254)
 
 [editable path="Player/Camera2D"]

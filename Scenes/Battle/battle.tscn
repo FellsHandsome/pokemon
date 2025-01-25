@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dhlaxd5mw4lkx" path="res://Scenes/Player/player_battle.tscn" id="4_k008y"]
 [ext_resource type="PackedScene" uid="uid://cpqpj5l3y1vb4" path="res://Scenes/Battle/texture_button.tscn" id="6_3m0kj"]
 [ext_resource type="Texture2D" uid="uid://dco5jjatnbfq1" path="res://Assets/Bobol/Background-last-tcg/bg battle scene final.png" id="9_b35bf"]
-[ext_resource type="FontFile" uid="uid://bt81gakkwqr6v" path="res://Assets/Fonts/Minecraft.ttf" id="10_ddywv"]
+[ext_resource type="PackedScene" uid="uid://bqlu3rajpe485" path="res://Assets/Bobol/bubble.tscn" id="9_offip"]
+[ext_resource type="FontFile" uid="uid://duekygs83622e" path="res://Assets/Fonts/dogicapixelbold.ttf" id="10_hs6y6"]
 [ext_resource type="Texture2D" uid="uid://c4jg5kbl0ysf" path="res://Assets/Bobol/Background-last-tcg/black bar.png" id="10_x2t8l"]
 [ext_resource type="Texture2D" uid="uid://d4k00la1nrqau" path="res://Assets/Sprites/Dialog/arrow.png" id="12_vbxdp"]
 [ext_resource type="AudioStream" uid="uid://q5iltmqfa7fc" path="res://Assets/Music/WildBattle.mp3" id="13_5h7kn"]
@@ -13,14 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://1eas8q5s5w80" path="res://Assets/Sprites/Menu/menu.png" id="16_wuoch"]
 [ext_resource type="Texture2D" uid="uid://bt1q6syprtekc" path="res://Assets/Sprites/Menu/fade.png" id="17_1h4lb"]
 
-[sub_resource type="FontVariation" id="FontVariation_g1pfo"]
-base_font = ExtResource("13_s16hb")
-spacing_glyph = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_4kwwl"]
-line_spacing = 5.0
-font = ExtResource("10_ddywv")
-font_size = 25
+[sub_resource type="LabelSettings" id="LabelSettings_h1nvc"]
+font = ExtResource("10_hs6y6")
+font_size = 12
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_efw6t"]
@@ -213,12 +209,16 @@ layer = 2
 
 [node name="BgBattleSceneFinal" type="Sprite2D" parent="CanvasLayer"]
 z_index = -1
-position = Vector2(261.111, 152)
-scale = Vector2(0.366667, 0.366667)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(254, 134)
+scale = Vector2(0.295833, 0.295833)
 texture = ExtResource("9_b35bf")
 
 [node name="Enemy" parent="CanvasLayer" instance=ExtResource("4_gedl8")]
 z_index = -1
+texture_filter = 1
+texture_repeat = 1
 position = Vector2(82, 36)
 
 [node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
@@ -257,6 +257,7 @@ scale = Vector2(3, 2)
 texture = ExtResource("16_wuoch")
 
 [node name="AttackBtn1" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_3m0kj")]
+texture_repeat = 1
 layout_mode = 0
 offset_left = 398.0
 offset_top = 250.0
@@ -322,31 +323,32 @@ position = Vector2(60.9998, 276)
 scale = Vector2(1.03333, 2)
 texture = ExtResource("16_wuoch")
 
-[node name="PPLabel" type="Label" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
 texture_filter = 1
+texture_repeat = 1
 layout_mode = 0
-offset_left = 35.0
-offset_top = 242.0
-offset_right = 155.0
-offset_bottom = 271.0
-scale = Vector2(0.5, 1)
-theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
-theme_override_colors/font_shadow_color = Color(0.847059, 0.815686, 0.690196, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = SubResource("FontVariation_g1pfo")
-theme_override_font_sizes/font_size = 19
+offset_left = 20.0
+offset_top = 246.0
+offset_right = 101.0
+offset_bottom = 259.0
 text = "Relaxed"
-label_settings = SubResource("LabelSettings_4kwwl")
+label_settings = SubResource("LabelSettings_h1nvc")
+
+[node name="Bubble" parent="CanvasLayer/UI" instance=ExtResource("9_offip")]
+position = Vector2(58, 283)
+scale = Vector2(1.25, 1.25)
+frame = 5
+frame_progress = 0.759298
 
 [node name="DialogBox" type="Control" parent="CanvasLayer/UI"]
+z_index = 4
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DialogBox" type="Sprite2D" parent="CanvasLayer/UI/DialogBox"]
 texture_filter = 1
-position = Vector2(241, 277)
+position = Vector2(241, 276)
 scale = Vector2(3.76563, 2)
 texture = ExtResource("10_x2t8l")
 
@@ -360,6 +362,7 @@ texture = ExtResource("12_vbxdp")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UI/DialogBox"]
 visible = false
 texture_filter = 1
+texture_repeat = 1
 layout_mode = 0
 offset_left = 26.0
 offset_top = 248.0

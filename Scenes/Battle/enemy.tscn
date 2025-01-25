@@ -1,36 +1,52 @@
-[gd_scene load_steps=11 format=3 uid="uid://uf34ufn87ga5"]
+[gd_scene load_steps=14 format=3 uid="uid://uf34ufn87ga5"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/Enemy.gd" id="1_ka4xh"]
 [ext_resource type="Texture2D" uid="uid://bt20v461dbbw6" path="res://Assets/Sprites/Battle/under.png" id="4_in2xp"]
 [ext_resource type="Texture2D" uid="uid://bxhrhfptnamp2" path="res://Assets/Bobol/Teacher Battle Sprite_0001.png" id="4_o626v"]
 [ext_resource type="Texture2D" uid="uid://dnykljxe3ujns" path="res://Assets/Sprites/Battle/fill.png" id="5_70yyu"]
-[ext_resource type="FontFile" uid="uid://bt81gakkwqr6v" path="res://Assets/Fonts/Minecraft.ttf" id="5_o5x5b"]
+[ext_resource type="FontFile" uid="uid://duekygs83622e" path="res://Assets/Fonts/dogicapixelbold.ttf" id="5_h4bfp"]
+[ext_resource type="Texture2D" uid="uid://cytoomu2pwpew" path="res://Assets/Bobol/Teacher Battle Sprite_0002.png" id="6_vfuk5"]
+[ext_resource type="Script" path="res://Scenes/Battle/animation-guru.gd" id="7_rtx4k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4hjmi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o626v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vfuk5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}]
 
 [sub_resource type="Animation" id="Animation_5ugbh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/path = NodePath("EnemySprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(160, 72)]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemySprite:visible")
+tracks/1/path = NodePath("EnemySprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(160, 72)]
 }
 
 [sub_resource type="Animation" id="Animation_72i05"]
@@ -54,26 +70,26 @@ resource_name = "hit"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/path = NodePath("EnemySprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(160, 72)]
+"values": [true, false, true, false, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemySprite:visible")
+tracks/1/path = NodePath("EnemySprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false, true]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 72)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_exm8s"]
@@ -84,7 +100,8 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdxaw"]
-font = ExtResource("5_o5x5b")
+font = ExtResource("5_h4bfp")
+font_size = 13
 
 [node name="Enemy" type="Node2D"]
 position = Vector2(182, 15)
@@ -106,9 +123,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 texture_filter = 1
+texture_repeat = 1
 position = Vector2(160, 72)
 scale = Vector2(0.228328, 0.229322)
-texture = ExtResource("4_o626v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySprite"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(13.1389, 61.0495)
+scale = Vector2(0.990899, 0.986604)
+sprite_frames = SubResource("SpriteFrames_4hjmi")
+animation = &"idle"
+frame_progress = 0.184738
+script = ExtResource("7_rtx4k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -124,10 +151,12 @@ scale = Vector2(0.945329, 0.982711)
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 253.0
-offset_top = 43.0
-offset_right = 293.0
-offset_bottom = 66.0
+texture_filter = 2
+texture_repeat = 1
+offset_left = 249.0
+offset_top = 44.0
+offset_right = 275.0
+offset_bottom = 57.0
 text = "HP"
 label_settings = SubResource("LabelSettings_qdxaw")
 

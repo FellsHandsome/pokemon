@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://lqlhdyq3edu2" path="res://Assets/Sprites/Menu/button.png" id="1_bs4en"]
 [ext_resource type="Script" path="res://Scenes/Battle/texture_button.gd" id="2_xdc1s"]
 [ext_resource type="FontFile" uid="uid://dumivhttkti0d" path="res://Assets/Fonts/PKMN RBYGSC.ttf" id="3_dxrdr"]
-[ext_resource type="FontFile" uid="uid://bt81gakkwqr6v" path="res://Assets/Fonts/Minecraft.ttf" id="4_p08y5"]
+[ext_resource type="FontFile" uid="uid://duekygs83622e" path="res://Assets/Fonts/dogicapixelbold.ttf" id="4_6l2ho"]
 
 [sub_resource type="FontVariation" id="FontVariation_ucts3"]
 base_font = ExtResource("3_dxrdr")
 spacing_glyph = -2
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvegu"]
-font = ExtResource("4_p08y5")
+font = ExtResource("4_6l2ho")
 font_size = 20
 font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 
@@ -25,7 +25,8 @@ script = ExtResource("2_xdc1s")
 text = "Text Button"
 
 [node name="Label" type="Label" parent="."]
-texture_filter = 1
+texture_filter = 2
+texture_repeat = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +40,7 @@ theme_override_colors/font_color = Color(0.25098, 0.25098, 0.25098, 1)
 theme_override_colors/font_shadow_color = Color(0.815686, 0.815686, 0.784314, 1)
 theme_override_fonts/font = SubResource("FontVariation_ucts3")
 theme_override_font_sizes/font_size = 18
-text = "Action"
+text = "Text Button"
 label_settings = SubResource("LabelSettings_yvegu")
 vertical_alignment = 1
 autowrap_mode = 2

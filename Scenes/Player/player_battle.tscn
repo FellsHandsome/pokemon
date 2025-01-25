@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Battle/player_battle.gd" id="1_wj4pn"]
 [ext_resource type="Texture2D" uid="uid://bt20v461dbbw6" path="res://Assets/Sprites/Battle/under.png" id="3_ui54x"]
-[ext_resource type="FontFile" uid="uid://bt81gakkwqr6v" path="res://Assets/Fonts/Minecraft.ttf" id="4_5pe2o"]
+[ext_resource type="FontFile" uid="uid://duekygs83622e" path="res://Assets/Fonts/dogicapixelbold.ttf" id="4_30j3v"]
 [ext_resource type="Texture2D" uid="uid://dnykljxe3ujns" path="res://Assets/Sprites/Battle/fill.png" id="4_aga0u"]
 
 [sub_resource type="Animation" id="Animation_vymgv"]
@@ -24,7 +24,8 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_np3h0"]
-font = ExtResource("4_5pe2o")
+font = ExtResource("4_30j3v")
+font_size = 13
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_wj4pn")
@@ -57,10 +58,12 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 2
+texture_repeat = 1
 offset_left = 114.0
 offset_top = 208.0
-offset_right = 154.0
-offset_bottom = 231.0
+offset_right = 140.0
+offset_bottom = 221.0
 text = "HP"
 label_settings = SubResource("LabelSettings_np3h0")
 
