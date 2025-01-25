@@ -85,6 +85,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_r18bq")
+}, {
+"duration": 1.0,
 "texture": ExtResource("9_lmw0m")
 }, {
 "duration": 1.0,
@@ -395,14 +398,9 @@ script = ExtResource("1_4urp6")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vs7wi")
 animation = &"down"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_vs7wi")
-animation = &"right"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_28m4i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -413,5 +411,4 @@ libraries = {
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jxyha")
