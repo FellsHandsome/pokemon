@@ -8,12 +8,12 @@ extends Control
 @onready var enemy_hp_bar = $CanvasLayer/Enemy/EnemyHPBar
 @onready var anim = $CanvasLayer/AnimationPlayer
 @onready var text_timer = $CanvasLayer/UI/DialogBox/TextTimer
-@onready var dialog =$CanvasLayer/UI/DialogBox/RichTextLabel
+@onready var dialog = $CanvasLayer/UI/DialogBox/RichTextLabel
 @onready var dialog_box = $CanvasLayer/UI/DialogBox
 @onready var click_to_continue = $CanvasLayer/UI/DialogBox/ContinueArrow
 @onready var menu = $CanvasLayer/UI/PlayerMenu
 @onready var menu_arrow = $CanvasLayer/UI/PlayerMenu/FightMenu/MenuArrow
-@onready var player = $CanvasLayer/Player
+@onready var player = $CanvasLayer/Player  # Reference to the player node
 @onready var canvas = $CanvasLayer
 
 @export var text_speed = 0.04
@@ -24,6 +24,7 @@ var is_menu_visible = false
 var begin_battle = false
 
 var thunder_scene = preload("res://Scenes/Battle/ThunderShock.tscn")
+var slash_scene = preload("res://Scenes/Battle/slash.tscn")
 
 func _ready():
 	SignalManager.connect("btn_pos", move_menu_arrow)
@@ -43,8 +44,10 @@ func _process(_delta):
 		show_dialog("A wild RATTATA appeared!")
 		begin_battle = false
 		
+	# Check for input to advance dialog
 	if Input.is_action_just_pressed("ui_accept") and !is_menu_visible and enemy.hp > 0:
 		if is_dialog_finished:
+			# Hide dialog and show menu
 			dialog.visible = false
 			dialog_box.visible = false
 			click_to_continue.visible = false
@@ -53,10 +56,11 @@ func _process(_delta):
 			is_menu_visible = true
 			attack1_btn.grab_focus()
 		else:
-			dialog.visible_characters = dialog.text.length()
+			# Advance dialog text
+			next_text()  # Call next_text() to animate the text
 
 func on_enemy_dead():
-	# exit battle
+	# Exit battle
 	show_dialog("Enemy RATTATA fainted")
 	anim.play("fade_out")
 
@@ -64,14 +68,13 @@ func on_player_dead():
 	show_dialog("Player blacked out!")
 	anim.play("fade_out")
 
-	
-func move_menu_arrow(x,y):
-	# position the arrow on the menu 
+func move_menu_arrow(x, y):
+	# Position the arrow on the menu 
 	menu_arrow.global_position.x = x
 	menu_arrow.global_position.y = y
 
 func show_dialog(custom_text):
-	# show dialog box with custom text.
+	# Show dialog box with custom text.
 	GameManager.is_dialog = true
 	dialog_box.visible = true
 	menu.visible = false
@@ -80,36 +83,35 @@ func show_dialog(custom_text):
 	click_to_continue.visible = true
 	text_timer.wait_time = text_speed
 	anim.play("blink")
-	next_text()
 	dialog.text = str(custom_text)
+	next_text()  # Start displaying the text
 
 func next_text() -> void:
-	# animate the dialog text
+	# Animate the dialog text
 	if text_num >= dialog.text.length():
 		dialog.text = ""
 		return
 	
 	is_dialog_finished = false
-	
 	dialog.visible_characters = 0
-		
+	
 	while dialog.visible_characters < dialog.text.length():
 		dialog.visible_characters += 1
-		
 		text_timer.start()
 		await text_timer.timeout
 	
 	is_dialog_finished = true
 	text_num += 1
-	
-	return
 
 func _on_attack_btn_1_pressed():
 	is_menu_visible = false
 	show_dialog("Pikachu used " + attack1_btn.show_text())
 	player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.enemy_hp_changed.emit(10)
+	# Use the player's attack damage for the enemy
+	var damage = player.attack_damage * player.damage_bonus_multiplier
+	SignalManager.enemy_hp_changed.emit(damage)
+	await enemy.animation_player.animation_finished  # Wait for enemy to react
 
 func _on_attack_btn_2_pressed():
 	is_menu_visible = false
@@ -119,18 +121,26 @@ func _on_attack_btn_2_pressed():
 	canvas.add_child(thunder_instance)
 	thunder_instance.position = $CanvasLayer/FX_pos.position	
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.enemy_hp_changed.emit(15)
-	
+	# Use the player's attack damage for the enemy
+	var damage = player.attack_damage * player.damage_bonus_multiplier
+	SignalManager.enemy_hp_changed.emit(damage)
+	await enemy.animation_player.animation_finished  # Wait for enemy to react
 
 func _on_attack_btn_3_pressed():
 	is_menu_visible = false
 	show_dialog("Pikachu used " + attack3_btn.show_text())
-	player.animation_player.play("tackle")
+	player.animation_player.play("slash")
+	var slash_instance = slash_scene.instantiate()
+	canvas.add_child(slash_instance)
+	slash_instance.position = $CanvasLayer/FX_pos.position
 	await get_tree().create_timer(1.0).timeout 
-	SignalManager.enemy_hp_changed.emit(8)
+	# Use the player's attack damage for the enemy
+	var damage = player.attack_damage * player.damage_bonus_multiplier
+	SignalManager.enemy_hp_changed.emit(damage)
+	await enemy.animation_player.animation_finished  # Wait for enemy to react
 
 func _on_run_btn_pressed():
-	# exit battle
+	# Exit battle
 	show_dialog("Run away safely")
 	anim.play("fade_out")
 
@@ -147,6 +157,11 @@ func on_enemy_turn():
 		show_dialog("RATTATA used quick attack!")
 		SignalManager.player_hp_changed.emit(5)
 		enemy.animation_player.play("attack")
+		await enemy.animation_player.animation_finished  # Wait for the enemy's attack animation to finish
+
+	# After the enemy's turn, switch back to the player
+	GameManager.turn = "player"
+	print("Enemy turn finished, switching to player turn.")
 
 func on_player_animation_finished():
 	enemy.animation_player.play("hit")
