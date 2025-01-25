@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/PKMN RBYGSC.ttf-37db2cf43e4225431e0424a17a840
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
