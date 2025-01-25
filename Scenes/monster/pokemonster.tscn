@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cp86d0fvpgoil"]
+[gd_scene load_steps=25 format=3 uid="uid://cp86d0fvpgoil"]
 
 [ext_resource type="Script" path="res://Scenes/monster/pokemonster.gd" id="1_oejc0"]
 [ext_resource type="Texture2D" uid="uid://c7tx0gv4ugvfh" path="res://Assets/Sprites/Pokemons/8directional/move_down_00.png" id="2_6q2au"]
@@ -372,7 +372,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s37cg"]
-radius = 8.0
+radius = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhaiu"]
+radius = 4.8
 
 [node name="PokeMonster" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_oejc0")
@@ -392,14 +395,23 @@ libraries = {
 }
 
 [node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, 8)
+position = Vector2(0, 0.8)
 shape = SubResource("CircleShape2D_s37cg")
+
+[node name="Area" type="Area2D" parent="."]
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 0.8)
+shape = SubResource("CircleShape2D_rhaiu")
 
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="Area" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]
