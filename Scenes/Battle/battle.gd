@@ -40,7 +40,7 @@ func _process(_delta):
 	click_to_continue.visible = is_dialog_finished
 	
 	if begin_battle:
-		show_dialog("A wild RATTATA appeared!")
+		show_dialog("Pak Beni telah mendekat")
 		begin_battle = false
 		
 	if Input.is_action_just_pressed("ui_accept") and !is_menu_visible and enemy.hp > 0:
@@ -57,11 +57,11 @@ func _process(_delta):
 
 func on_enemy_dead():
 	# exit battle
-	show_dialog("Enemy RATTATA fainted")
+	show_dialog("Pak Beni tumbang")
 	anim.play("fade_out")
 
 func on_player_dead():
-	show_dialog("Player blacked out!")
+	show_dialog("Emiliya Pingsan!")
 	anim.play("fade_out")
 
 func move_menu_arrow(x, y):
@@ -105,7 +105,7 @@ func next_text() -> void:
 
 func _on_attack_btn_1_pressed():
 	is_menu_visible = false
-	show_dialog("Pikachu used " + attack1_btn.show_text())
+	show_dialog("Emiliya menggunakan " + attack1_btn.show_text())
 	player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
 	var attack_damage = player.attack_damage * player.damage_bonus_multiplier
@@ -113,7 +113,7 @@ func _on_attack_btn_1_pressed():
 
 func _on_attack_btn_2_pressed():
 	is_menu_visible = false
-	show_dialog("Pikachu used " + attack2_btn.show_text())
+	show_dialog("Emiliya menggunakan " + attack2_btn.show_text())
 	player.animation_player.play("thunder")
 	var thunder_instance = thunder_scene.instantiate()
 	canvas.add_child(thunder_instance)
@@ -124,7 +124,7 @@ func _on_attack_btn_2_pressed():
 
 func _on_attack_btn_3_pressed():
 	is_menu_visible = false
-	show_dialog("Pikachu used " + attack3_btn.show_text())
+	show_dialog("Emiliya menggunakan " + attack3_btn.show_text())
 	player.animation_player.play("tackle")
 	await get_tree().create_timer(1.0).timeout 
 	var attack_damage = player.attack_damage * player.damage_bonus_multiplier
@@ -132,7 +132,7 @@ func _on_attack_btn_3_pressed():
 
 func _on_run_btn_pressed():
 	# exit battle
-	show_dialog("Run away safely")
+	show_dialog("Aku harus berusaha!")
 	anim.play("fade_out")
 
 func _on_animation_player_animation_finished(anim_name):
@@ -145,7 +145,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func on_enemy_turn():
 	if enemy.hp > 0:
-		show_dialog("RATTATA used quick attack!")
+		show_dialog("Pak Beni Menyerang!")
 		SignalManager.player_hp_changed.emit(5)
 		enemy.animation_player.play("attack")
 

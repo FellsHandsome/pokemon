@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var animation_player = $AnimationPlayer
-@onready var attack_damage = 4
+@onready var attack_damage = 3
 @onready var hp_bar = $EnemyHPBar
 @export var max_hp = 25
 var hp = 25

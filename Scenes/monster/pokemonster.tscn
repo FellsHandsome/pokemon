@@ -1,27 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://cp86d0fvpgoil"]
+[gd_scene load_steps=17 format=3 uid="uid://cp86d0fvpgoil"]
 
 [ext_resource type="Script" path="res://Scenes/monster/pokemonster.gd" id="1_oejc0"]
-[ext_resource type="Texture2D" uid="uid://c7tx0gv4ugvfh" path="res://Assets/Sprites/Pokemons/8directional/move_down_00.png" id="2_6q2au"]
-[ext_resource type="Texture2D" uid="uid://gtl06i2i870i" path="res://Assets/Sprites/Pokemons/8directional/move_down_01.png" id="3_afx07"]
-[ext_resource type="Texture2D" uid="uid://n4audckeqjr3" path="res://Assets/Sprites/Pokemons/8directional/move_down_02.png" id="4_jlae3"]
-[ext_resource type="Texture2D" uid="uid://fb5hwsptrxm" path="res://Assets/Sprites/Pokemons/8directional/move_left_02.png" id="5_0cqvc"]
-[ext_resource type="Texture2D" uid="uid://dxw6v4bvhlb0h" path="res://Assets/Sprites/Pokemons/8directional/move_up_02.png" id="6_7nmik"]
-[ext_resource type="Texture2D" uid="uid://d1f8d5j8q7i3h" path="res://Assets/Sprites/Pokemons/8directional/move_left_00.png" id="7_5iwvv"]
-[ext_resource type="Texture2D" uid="uid://cspi3lwgr4j3d" path="res://Assets/Sprites/Pokemons/8directional/move_left_01.png" id="8_fl8fc"]
-[ext_resource type="Texture2D" uid="uid://d0rk57b3372ec" path="res://Assets/Sprites/Pokemons/8directional/move_up_00.png" id="9_dvolf"]
-[ext_resource type="Texture2D" uid="uid://cxtxo310stm1c" path="res://Assets/Sprites/Pokemons/8directional/move_up_01.png" id="10_w4pfe"]
+[ext_resource type="Texture2D" uid="uid://b4ax1p782rr2o" path="res://Assets/Bobol/Tcg character/teacher standing..png" id="2_p7fgx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vs7wi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6q2au")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_afx07")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_jlae3")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"down",
@@ -29,7 +15,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_jlae3")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -37,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_0cqvc")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -45,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_0cqvc")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -53,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_7nmik")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -61,13 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_5iwvv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fl8fc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_0cqvc")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"left",
@@ -75,13 +55,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_5iwvv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fl8fc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_0cqvc")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"right",
@@ -89,13 +63,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_dvolf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_w4pfe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_7nmik")
+"texture": ExtResource("2_p7fgx")
 }],
 "loop": true,
 "name": &"up",
@@ -375,7 +343,7 @@ _data = {
 radius = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhaiu"]
-radius = 4.8
+radius = 1.67631
 
 [node name="PokeMonster" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_oejc0")
@@ -405,7 +373,7 @@ shape = SubResource("CircleShape2D_s37cg")
 scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(0, 0.8)
+position = Vector2(0, 0.1)
 shape = SubResource("CircleShape2D_rhaiu")
 
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
