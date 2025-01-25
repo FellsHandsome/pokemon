@@ -10,7 +10,7 @@ script = ExtResource("1_r86fe")
 [node name="Limits" type="Node2D" parent="."]
 
 [node name="TopLeft" type="Marker2D" parent="Limits"]
-position = Vector2(-80, -80)
+position = Vector2(-136, -118)
 
 [node name="BottomRight" type="Marker2D" parent="Limits"]
-position = Vector2(80, 80)
+position = Vector2(120, 106)

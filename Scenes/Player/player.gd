@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # player variables
-@export var speed = 40
-@export var max_speed = 100
+@export var speed = 200
+@export var max_speed = 200
 @export var FRICTION: float = 0.15
 var is_alive = true
 var move_direction = Vector2.ZERO
@@ -22,6 +22,7 @@ var probability = 0.85
 func _ready():
 	SignalManager.connect("instantiate_battle", battle)
 	randomize()
+	$AnimationPlayer.play("idle_down")  # Play idle animation when the game starts
 	
 func _process(delta):
 	get_input()
@@ -37,7 +38,7 @@ func get_input():
 	if GameManager.is_battle:
 		move_direction = Vector2.ZERO
 	else:
-		# movement
+		# Movement
 		if Input.is_action_pressed("ui_down"):
 			move_direction = Vector2.DOWN
 			$AnimationPlayer.play("down")
@@ -52,20 +53,19 @@ func get_input():
 			move_direction = Vector2.RIGHT
 			$AnimatedSprite2D.flip_h = true
 			$AnimationPlayer.play("right")
+		else:
+			move_direction = Vector2.ZERO  # Stop movement if no key is pressed
 
 		# Idle animations
-		if Input.is_action_just_released("ui_down"):
-			move_direction = Vector2.ZERO
-			$AnimationPlayer.play("idle_down")
-		if Input.is_action_just_released("ui_up"):
-			move_direction = Vector2.ZERO
-			$AnimationPlayer.play("idle_up")
-		if Input.is_action_just_released("ui_left"):
-			move_direction = Vector2.ZERO
-			$AnimationPlayer.play("idle_left")
-		if Input.is_action_just_released("ui_right"):
-			move_direction = Vector2.ZERO
-			$AnimationPlayer.play("idle_right")
+		if move_direction == Vector2.ZERO:
+			if Input.is_action_just_released("ui_down"):
+				$AnimationPlayer.play("idle_down")
+			if Input.is_action_just_released("ui_up"):
+				$AnimationPlayer.play("idle_up")
+			if Input.is_action_just_released("ui_left"):
+				$AnimationPlayer.play("idle_left")
+			if Input.is_action_just_released("ui_right"):
+				$AnimationPlayer.play("idle_right")
 
 func move():
 	move_direction = move_direction.normalized()

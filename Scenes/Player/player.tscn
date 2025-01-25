@@ -1,10 +1,10 @@
 [gd_scene load_steps=28 format=3 uid="uid://bnyjx4jfwpyc0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_4urp6"]
-[ext_resource type="Texture2D" uid="uid://b0ipscf1236bx" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward1.png" id="2_nweck"]
-[ext_resource type="Texture2D" uid="uid://bmob7tu8oiye2" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward2.png" id="3_33wjn"]
-[ext_resource type="Texture2D" uid="uid://dwl8brt8ckfwc" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward3.png" id="4_lmqao"]
-[ext_resource type="Texture2D" uid="uid://ca3wxw7afodhl" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward4.png" id="5_y14x4"]
+[ext_resource type="Texture2D" uid="uid://cspgs22fs40h8" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward.1.png" id="2_eadw5"]
+[ext_resource type="Texture2D" uid="uid://djo0gj8pcqqng" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward.2.png" id="3_0eknm"]
+[ext_resource type="Texture2D" uid="uid://dwttbk0ab3je3" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward.3.png" id="4_u4vb1"]
+[ext_resource type="Texture2D" uid="uid://dbofqr371xv5v" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward.4.png" id="5_t6qtn"]
 [ext_resource type="Texture2D" uid="uid://bsfjgf4mq4x4r" path="res://Assets/Sprites/player/Emily/stand/Emily standing.png" id="6_ogr0q"]
 [ext_resource type="Texture2D" uid="uid://b07lm7233lwcb" path="res://Assets/Sprites/player/Emily/walking/left/Emily walking left1.png" id="9_lmw0m"]
 [ext_resource type="Texture2D" uid="uid://mep8vkpb8v0d" path="res://Assets/Sprites/player/Emily/walking/left/Emily walking left2.png" id="10_r18bq"]
@@ -19,16 +19,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nweck")
+"texture": ExtResource("2_eadw5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_33wjn")
+"texture": ExtResource("3_0eknm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_lmqao")
+"texture": ExtResource("4_u4vb1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_y14x4")
+"texture": ExtResource("5_t6qtn")
 }],
 "loop": true,
 "name": &"down",
@@ -60,7 +60,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_qrn2m")
+"texture": ExtResource("14_73i4w")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -122,7 +122,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28m4i"]
-size = Vector2(14, 19)
+size = Vector2(22, 25)
 
 [sub_resource type="Animation" id="Animation_o4sfk"]
 length = 0.001
@@ -401,7 +401,9 @@ animation = &"down"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_28m4i")
+one_way_collision = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -411,4 +413,6 @@ libraries = {
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jxyha")
+one_way_collision = true

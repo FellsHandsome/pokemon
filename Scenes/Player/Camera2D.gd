@@ -3,8 +3,8 @@ extends Camera2D
 @onready var top_left = $Limits/TopLeft
 @onready var bottom_right = $Limits/BottomRight
 
-var zoom_out = Vector2(1,1)
-var zoom_in = Vector2(2,2)
+var zoom_out = Vector2(0.5,0.5)
+var zoom_in = Vector2(1,1)
 
 
 func _ready():

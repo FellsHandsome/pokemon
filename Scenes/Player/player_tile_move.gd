@@ -3,7 +3,7 @@ extends Area2D
 @onready var ray = $RayCast2D
 
 # tile-by-tile movement
-@export var tile_size = 16 # change this value to match the size of your tiles
+@export var tile_size = 32 # change this value to match the size of your tiles
 @export var animation_speed = 3
 var inputs = {"ui_right": Vector2.RIGHT, "ui_left": Vector2.LEFT, "ui_up": Vector2.UP, "ui_down": Vector2.DOWN}
 var moving = false

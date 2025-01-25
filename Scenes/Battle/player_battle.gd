@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var animation_player = $AnimationPlayer
-@onready var attack_damage = 0  # Base attack damage
+@onready var attack_damage = 5  # Base attack damage
 @onready var hp_bar = $PlayerHPBar
 @export var max_hp = 25
 var hp = 25
@@ -46,9 +46,3 @@ func _on_animation_player_animation_finished(anim_name):
 		SignalManager.emit_signal("player_animation_finished")
 	if anim_name == "thunder":
 		SignalManager.emit_signal("player_animation_finished")
-
-# Example function to deal damage to the enemy
-func deal_damage_to_enemy():
-	var total_damage = attack_damage * damage_bonus_multiplier  # Calculate total damage
-	print("Dealing damage: ", total_damage)  # Print the current damage for debugging
-	SignalManager.enemy_hp_changed.emit(total_damage)

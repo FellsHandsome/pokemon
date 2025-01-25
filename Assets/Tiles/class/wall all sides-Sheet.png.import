@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwl8brt8ckfwc"
-path="res://.godot/imported/Emily walking forward3.png-be2cd49be4745ac3fba425d9418ddd94.ctex"
+uid="uid://dqrw8n3yabkux"
+path="res://.godot/imported/wall all sides-Sheet.png-020b0fcad72488a7764abf502e052129.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward3.png"
-dest_files=["res://.godot/imported/Emily walking forward3.png-be2cd49be4745ac3fba425d9418ddd94.ctex"]
+source_file="res://Assets/Tiles/class/wall all sides-Sheet.png"
+dest_files=["res://.godot/imported/wall all sides-Sheet.png-020b0fcad72488a7764abf502e052129.ctex"]
 
 [params]
 
