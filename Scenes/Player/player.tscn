@@ -1,65 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://bnyjx4jfwpyc0"]
+[gd_scene load_steps=28 format=3 uid="uid://bnyjx4jfwpyc0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_4urp6"]
-[ext_resource type="Texture2D" uid="uid://bmlv85tddoy4d" path="res://Assets/Sprites/player/down.png" id="2_kimnh"]
-[ext_resource type="Texture2D" uid="uid://b0ipscf1236bx" path="res://Assets/Sprites/player/Emily/walking/Emily walking forward1.png" id="2_nweck"]
-[ext_resource type="Texture2D" uid="uid://bmob7tu8oiye2" path="res://Assets/Sprites/player/Emily/walking/Emily walking forward2.png" id="3_33wjn"]
-[ext_resource type="Texture2D" uid="uid://ci7ny53waqgjs" path="res://Assets/Sprites/player/left.png" id="3_wud38"]
-[ext_resource type="Texture2D" uid="uid://dwl8brt8ckfwc" path="res://Assets/Sprites/player/Emily/walking/Emily walking forward3.png" id="4_lmqao"]
-[ext_resource type="Texture2D" uid="uid://d015uijogdr7p" path="res://Assets/Sprites/player/up.png" id="4_m6ydb"]
-[ext_resource type="Texture2D" uid="uid://ca3wxw7afodhl" path="res://Assets/Sprites/player/Emily/walking/Emily walking forward4.png" id="5_y14x4"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwmke"]
-atlas = ExtResource("2_kimnh")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f850k"]
-atlas = ExtResource("3_wud38")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_28ihr"]
-atlas = ExtResource("3_wud38")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wll01"]
-atlas = ExtResource("4_m6ydb")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1bod"]
-atlas = ExtResource("3_wud38")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kmgjb"]
-atlas = ExtResource("3_wud38")
-region = Rect2(0, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qw2cm"]
-atlas = ExtResource("3_wud38")
-region = Rect2(32, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gj2aw"]
-atlas = ExtResource("3_wud38")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wco52"]
-atlas = ExtResource("3_wud38")
-region = Rect2(0, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4cuqy"]
-atlas = ExtResource("3_wud38")
-region = Rect2(32, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxq5x"]
-atlas = ExtResource("4_m6ydb")
-region = Rect2(16, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nqnbm"]
-atlas = ExtResource("4_m6ydb")
-region = Rect2(0, 0, 16, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgx5f"]
-atlas = ExtResource("4_m6ydb")
-region = Rect2(32, 0, 16, 19)
+[ext_resource type="Texture2D" uid="uid://b0ipscf1236bx" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward1.png" id="2_nweck"]
+[ext_resource type="Texture2D" uid="uid://bmob7tu8oiye2" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward2.png" id="3_33wjn"]
+[ext_resource type="Texture2D" uid="uid://dwl8brt8ckfwc" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward3.png" id="4_lmqao"]
+[ext_resource type="Texture2D" uid="uid://ca3wxw7afodhl" path="res://Assets/Sprites/player/Emily/walking/forward/Emily walking forward4.png" id="5_y14x4"]
+[ext_resource type="Texture2D" uid="uid://bsfjgf4mq4x4r" path="res://Assets/Sprites/player/Emily/stand/Emily standing.png" id="6_ogr0q"]
+[ext_resource type="Texture2D" uid="uid://b07lm7233lwcb" path="res://Assets/Sprites/player/Emily/walking/left/Emily walking left1.png" id="9_lmw0m"]
+[ext_resource type="Texture2D" uid="uid://mep8vkpb8v0d" path="res://Assets/Sprites/player/Emily/walking/left/Emily walking left2.png" id="10_r18bq"]
+[ext_resource type="Texture2D" uid="uid://c2sdqisf067ja" path="res://Assets/Sprites/player/Emily/walking/left/Emily walking left3.png" id="11_psq7f"]
+[ext_resource type="Texture2D" uid="uid://bnv5l61cprhxu" path="res://Assets/Sprites/player/Emily/walking/left/Emily walking left4.png" id="12_x8n0a"]
+[ext_resource type="Texture2D" uid="uid://q6s0n471ylkq" path="res://Assets/Sprites/player/Emily/walking/backward/Emily walking backward1.png" id="13_qrn2m"]
+[ext_resource type="Texture2D" uid="uid://dfyh4mx6g6x6x" path="res://Assets/Sprites/player/Emily/walking/backward/Emily walking backward2.png" id="14_73i4w"]
+[ext_resource type="Texture2D" uid="uid://uyswtvl5bfas" path="res://Assets/Sprites/player/Emily/walking/backward/Emily walking backward3.png" id="15_scvh5"]
+[ext_resource type="Texture2D" uid="uid://bn3brixuplp6d" path="res://Assets/Sprites/player/Emily/walking/backward/Emily walking backward4.png" id="16_nqgh1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vs7wi"]
 animations = [{
@@ -82,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hwmke")
+"texture": ExtResource("6_ogr0q")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -90,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f850k")
+"texture": ExtResource("10_r18bq")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -98,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_28ihr")
+"texture": ExtResource("10_r18bq")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -106,7 +60,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wll01")
+"texture": ExtResource("13_qrn2m")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -114,16 +68,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m1bod")
+"texture": ExtResource("9_lmw0m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kmgjb")
+"texture": ExtResource("10_r18bq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m1bod")
+"texture": ExtResource("11_psq7f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qw2cm")
+"texture": ExtResource("12_x8n0a")
 }],
 "loop": true,
 "name": &"left",
@@ -131,16 +85,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gj2aw")
+"texture": ExtResource("9_lmw0m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wco52")
+"texture": ExtResource("10_r18bq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gj2aw")
+"texture": ExtResource("11_psq7f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4cuqy")
+"texture": ExtResource("12_x8n0a")
 }],
 "loop": true,
 "name": &"right",
@@ -148,16 +102,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oxq5x")
+"texture": ExtResource("13_qrn2m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nqnbm")
+"texture": ExtResource("14_73i4w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oxq5x")
+"texture": ExtResource("15_scvh5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kgx5f")
+"texture": ExtResource("16_nqgh1")
 }],
 "loop": true,
 "name": &"up",
@@ -441,6 +395,11 @@ script = ExtResource("1_4urp6")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vs7wi")
 animation = &"down"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vs7wi")
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)

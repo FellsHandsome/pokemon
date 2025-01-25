@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwl8brt8ckfwc"
-path="res://.godot/imported/Emily walking forward3.png-cc810fae15a5553fbb1b830770626cb6.ctex"
+uid="uid://bnv5l61cprhxu"
+path="res://.godot/imported/Emily walking left4.png-96803becca3bbeb81ed3ce27c1eb1444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/player/Emily/walking/Emily walking forward3.png"
-dest_files=["res://.godot/imported/Emily walking forward3.png-cc810fae15a5553fbb1b830770626cb6.ctex"]
+source_file="res://Assets/Sprites/player/Emily/walking/left/Emily walking left4.png"
+dest_files=["res://.godot/imported/Emily walking left4.png-96803becca3bbeb81ed3ce27c1eb1444.ctex"]
 
 [params]
 
