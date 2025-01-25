@@ -17,6 +17,9 @@ var is_chasing = false  # Indicates whether the monster is chasing the player
 # For HitBox that triggers the battle scene
 @onready var hitbox = $HitBox  # Ensure the node name matches
 
+# Variable to track the last direction
+var last_direction: String = "idle_down"  # Default to idle down
+
 func _ready():
 	# Connect signals for Area2D to start chasing
 	if area:
@@ -41,6 +44,18 @@ func _physics_process(delta):
 		var direction_to_player = (target.global_position - global_position).normalized()
 		velocity += direction_to_player * speed
 		velocity = velocity.limit_length(max_speed)
+
+		# Update last direction based on velocity
+		if abs(velocity.x) > abs(velocity.y):
+			if velocity.x > 0:
+				last_direction = "idle_right"
+			else:
+				last_direction = "idle_left"
+		else:
+			if velocity.y > 0:
+				last_direction = "idle_down"
+			else:
+				last_direction = "idle_up"
 	else:
 		# If no target or monster is not chasing, stop moving
 		velocity = Vector2.ZERO
@@ -51,22 +66,32 @@ func _process(delta):
 	update_animation()
 
 func update_animation():
-	if velocity.length() > 0:
-		if abs(velocity.x) > abs(velocity.y):
-			if velocity.x > 0:
-				$AnimationPlayer.play("right")
-				$AnimatedSprite2D.flip_h = true
+	if is_chasing:
+		if velocity.length() > 0:
+			if abs(velocity.x) > abs(velocity.y):
+				if velocity.x > 0:
+					$AnimationPlayer.play("right")
+					$AnimatedSprite2D.flip_h = true
+				else:
+					$AnimationPlayer.play("left")
+					$AnimatedSprite2D.flip_h = false
 			else:
-				$AnimationPlayer.play("left")
-				$AnimatedSprite2D.flip_h = false
+				if velocity.y > 0:
+					$AnimationPlayer.play("down")
+				else:
+					$AnimationPlayer.play("up")
 		else:
-			if velocity.y > 0:
-				$AnimationPlayer.play("down")
-			else:
-				$AnimationPlayer.play("up")
+			# If the monster is stationary while chasing, switch to idle animation
+			if !$AnimationPlayer.is_playing() or $AnimationPlayer.current_animation != "idle":
+				$AnimationPlayer.play("idle")  # Ensure you have an idle animation
 	else:
-		# If the monster is stationary, stop the animation or use idle animation
-		$AnimationPlayer.stop()
+		# Play the appropriate idle animation based on last direction
+		if last_direction != "" and !$AnimationPlayer.is_playing():
+			$AnimationPlayer.play(last_direction)
+		else:
+			# Stop the animation if not chasing
+			if $AnimationPlayer.is_playing():
+				$AnimationPlayer.stop()
 
 # When the player enters the Area2D (start chasing)
 func _on_area_body_entered(body: PhysicsBody2D):
@@ -81,6 +106,8 @@ func _on_area_body_exited(body: PhysicsBody2D):
 		# Player exits the area, stop chasing
 		target = null
 		is_chasing = false
+		# Stop the animation when exiting the area
+		$AnimationPlayer.stop()
 
 # When the player enters the hitbox (trigger battle)
 func _on_hitbox_body_entered(body: PhysicsBody2D):
