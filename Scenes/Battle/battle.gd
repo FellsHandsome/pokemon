@@ -24,6 +24,7 @@ var is_menu_visible = false
 var begin_battle = false
 
 var thunder_scene = preload("res://Scenes/Battle/ThunderShock.tscn")
+var slash_scene = preload("res://Scenes/Battle/slash.tscn")
 
 func _ready():
 	SignalManager.connect("btn_pos", move_menu_arrow)
@@ -43,8 +44,10 @@ func _process(_delta):
 		show_dialog("A wild RATTATA appeared!")
 		begin_battle = false
 		
+	# Check for input to advance dialog
 	if Input.is_action_just_pressed("ui_accept") and !is_menu_visible and enemy.hp > 0:
 		if is_dialog_finished:
+			# Hide dialog and show menu
 			dialog.visible = false
 			dialog_box.visible = false
 			click_to_continue.visible = false
@@ -53,7 +56,10 @@ func _process(_delta):
 			is_menu_visible = true
 			attack1_btn.grab_focus()
 		else:
-			dialog.visible_characters = dialog.text.length()
+			# Advance dialog text
+			dialog.visible_characters = dialog.text.length()  # Show full text immediately
+			# Alternatively, you can call next_text() to animate the text
+			# next_text()  # Uncomment this if you want to animate the text
 
 func on_enemy_dead():
 	# exit battle
@@ -125,7 +131,10 @@ func _on_attack_btn_2_pressed():
 func _on_attack_btn_3_pressed():
 	is_menu_visible = false
 	show_dialog("Pikachu used " + attack3_btn.show_text())
-	player.animation_player.play("tackle")
+	player.animation_player.play("slash")
+	var slash_instance = slash_scene.instantiate()
+	canvas.add_child(slash_instance)
+	slash_instance.position = $CanvasLayer/FX_pos.position
 	await get_tree().create_timer(1.0).timeout 
 	SignalManager.enemy_hp_changed.emit(8)
 
