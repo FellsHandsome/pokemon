@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj7e0c5p3x7he"]
+[gd_scene load_steps=8 format=3 uid="uid://bj7e0c5p3x7he"]
 
 [ext_resource type="Script" path="res://Scenes/Menu/main_menu.gd" id="1_nkly5"]
 [ext_resource type="AudioStream" uid="uid://ckkaf2gts5kla" path="res://Assets/Music/Pokemon Yellow Intro (mp3cut.net).mp3" id="3_7tuw6"]
-[ext_resource type="FontFile" uid="uid://dumivhttkti0d" path="res://Assets/Fonts/PKMN RBYGSC.ttf" id="3_bg4px"]
-[ext_resource type="Texture2D" uid="uid://dwg4fysmj73dp" path="res://Assets/Sprites/Menu/poke.jpg" id="4_0s75q"]
-[ext_resource type="Texture2D" uid="uid://bv5j2vfnf2ean" path="res://Assets/Sprites/Menu/Godokemon-18-5-2024.png" id="4_klw4w"]
+[ext_resource type="Texture2D" uid="uid://bq708lg4i72b4" path="res://Assets/Bobol/Intro/Introvert.jpg" id="3_n0x7t"]
+[ext_resource type="FontFile" uid="uid://duekygs83622e" path="res://Assets/Fonts/dogicapixelbold.ttf" id="4_skk1b"]
 
 [sub_resource type="Animation" id="Animation_7oco4"]
 length = 0.001
@@ -65,32 +64,46 @@ volume_db = -10.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 480.0
+offset_left = -22.0
+offset_right = 513.0
 offset_bottom = 320.0
-texture = ExtResource("4_0s75q")
+texture = ExtResource("3_n0x7t")
 expand_mode = 1
-
-[node name="Title" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(240, 61.5657)
-scale = Vector2(0.46875, 0.435976)
-texture = ExtResource("4_klw4w")
 
 [node name="Start" type="Label" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 232.0
-offset_right = 400.0
-offset_bottom = 280.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+offset_left = 130.0
+offset_top = 240.0
+offset_right = 385.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.356863, 0.176471, 0.403922, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("3_bg4px")
-theme_override_font_sizes/font_size = 25
-text = "PRESS START"
+theme_override_fonts/font = ExtResource("4_skk1b")
+theme_override_font_sizes/font_size = 15
+text = "PRESS ENTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 36.0
+offset_right = 470.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.355432, 0.176903, 0.403613, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_skk1b")
+theme_override_font_sizes/font_size = 30
+text = "BUBBLED UP"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

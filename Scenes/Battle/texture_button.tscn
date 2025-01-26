@@ -12,7 +12,6 @@ spacing_glyph = -2
 [sub_resource type="LabelSettings" id="LabelSettings_yvegu"]
 font = ExtResource("4_6l2ho")
 font_size = 20
-font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 
 [node name="TextureButton" type="TextureButton"]
 texture_filter = 1

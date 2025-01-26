@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://uf34ufn87ga5" path="res://Scenes/Battle/enemy.tscn" id="4_gedl8"]
 [ext_resource type="PackedScene" uid="uid://dhlaxd5mw4lkx" path="res://Scenes/Player/player_battle.tscn" id="4_k008y"]
 [ext_resource type="PackedScene" uid="uid://cpqpj5l3y1vb4" path="res://Scenes/Battle/texture_button.tscn" id="6_3m0kj"]
+[ext_resource type="Texture2D" uid="uid://bwx4k2pxxv7w2" path="res://Assets/Bobol/Box_hitam/black bar.png" id="6_hrvp7"]
 [ext_resource type="Texture2D" uid="uid://dco5jjatnbfq1" path="res://Assets/Bobol/Background-last-tcg/bg battle scene final.png" id="9_b35bf"]
 [ext_resource type="PackedScene" uid="uid://bqlu3rajpe485" path="res://Assets/Bobol/bubble.tscn" id="9_offip"]
 [ext_resource type="FontFile" uid="uid://duekygs83622e" path="res://Assets/Fonts/dogicapixelbold.ttf" id="10_hs6y6"]
@@ -11,13 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://d4k00la1nrqau" path="res://Assets/Sprites/Dialog/arrow.png" id="12_vbxdp"]
 [ext_resource type="AudioStream" uid="uid://q5iltmqfa7fc" path="res://Assets/Music/WildBattle.mp3" id="13_5h7kn"]
 [ext_resource type="FontFile" uid="uid://dumivhttkti0d" path="res://Assets/Fonts/PKMN RBYGSC.ttf" id="13_s16hb"]
-[ext_resource type="Texture2D" uid="uid://1eas8q5s5w80" path="res://Assets/Sprites/Menu/menu.png" id="16_wuoch"]
 [ext_resource type="Texture2D" uid="uid://bt1q6syprtekc" path="res://Assets/Sprites/Menu/fade.png" id="17_1h4lb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1nvc"]
 font = ExtResource("10_hs6y6")
 font_size = 12
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_efw6t"]
 length = 0.001
@@ -252,9 +251,9 @@ offset_bottom = 40.0
 
 [node name="MenuBkg" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/FightMenu"]
 texture_filter = 1
-position = Vector2(541, 276)
-scale = Vector2(3, 2)
-texture = ExtResource("16_wuoch")
+position = Vector2(535.5, 276)
+scale = Vector2(2.91406, 2)
+texture = ExtResource("6_hrvp7")
 
 [node name="AttackBtn1" parent="CanvasLayer/UI/PlayerMenu/FightMenu" instance=ExtResource("6_3m0kj")]
 texture_repeat = 1
@@ -319,9 +318,9 @@ offset_bottom = 40.0
 
 [node name="MenuBkg" type="Sprite2D" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
 texture_filter = 1
-position = Vector2(60.9998, 276)
-scale = Vector2(1.03333, 2)
-texture = ExtResource("16_wuoch")
+position = Vector2(63.5665, 276)
+scale = Vector2(0.993226, 2)
+texture = ExtResource("6_hrvp7")
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/PlayerMenu/PPBox"]
 texture_filter = 1
@@ -348,7 +347,7 @@ offset_bottom = 40.0
 
 [node name="DialogBox" type="Sprite2D" parent="CanvasLayer/UI/DialogBox"]
 texture_filter = 1
-position = Vector2(241, 276)
+position = Vector2(244, 381)
 scale = Vector2(3.76563, 2)
 texture = ExtResource("10_x2t8l")
 
@@ -392,6 +391,7 @@ libraries = {
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_5h7kn")
 volume_db = 10.0
+stream_paused = true
 
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn1" to="." method="_on_attack_btn_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/PlayerMenu/FightMenu/AttackBtn2" to="." method="_on_attack_btn_2_pressed"]
